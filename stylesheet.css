@@ -1,0 +1,15 @@
+.bg {
+    background: url('images/bg.jpg') no-repeat center center;
+    position: fixed;
+    width: 100%;
+    height: 180px;
+    top:0;
+    left:0;
+    z-index: -1;
+}
+
+.jumbotron{
+    color: #f2f2f2;
+    background-color: rgba(0,0,0,0);
+    text-shadow: 0px 0px 8px #000000 ;
+}
