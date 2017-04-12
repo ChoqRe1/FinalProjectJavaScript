@@ -25,11 +25,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i" rel="stylesheet">
 
     <!--Our class-->
-    <link rel="stylesheet" href="stylesheet.css" />
+    <link rel="stylesheet" href="stylesheet.css"/>
 </head>
 <body>
-<nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-toggleable-sm navbar-light bg-faded navbar-static-top">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">Robo Mower</a>
@@ -61,14 +63,27 @@
 </header>
 
 <main>
-    <section>
-        <div class="container">
-            <div class="row col-sm-12"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 id="aboutus">
+                    About Us
+                </h2>
+            </div>
+            <div class="col-sm-12">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus elit nisl, vel dignissim ligula luctus non. Vestibulum sodales accumsan auctor. Praesent maximus, est eu porta aliquet, eros ex sodales dolor, ut facilisis nunc dui at risus. In interdum, augue quis rutrum feugiat, eros nulla mattis augue, at convallis purus ante vel est. Nullam quis aliquet turpis, sed varius orci. Phasellus posuere enim in ipsum euismod scelerisque. Cras facilisis massa eget dui tempor fringilla. In ipsum massa, fermentum et interdum sed, congue non magna. Sed at mattis ante, a vestibulum dolor.
+
+                    Praesent tempor justo id gravida iaculis. Aliquam ullamcorper vehicula quam, quis vehicula neque dapibus vitae. Nullam ac metus dapibus, sagittis est lobortis, vulputate ipsum. Aenean dignissim feugiat lectus. Quisque porta, nunc in luctus aliquet, dui odio lobortis augue, at ornare elit sapien vel turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam iaculis leo mi, ut molestie neque volutpat eu. Nullam convallis urna vitae tellus hendrerit placerat eu id nulla. Donec luctus ligula a feugiat semper. In blandit dolor maximus, tincidunt turpis at, molestie orci. Sed volutpat maximus leo at rutrum. Donec scelerisque metus non enim scelerisque convallis. Nam sem nulla, maximus vel augue in, efficitur porttitor nunc. Morbi aliquam cursus lobortis. Curabitur fermentum ligula at fermentum porttitor.
+
+                    Maecenas id nisl auctor, consectetur augue ut, pretium lectus. Phasellus sed arcu quis massa dapibus blandit ac id felis. Fusce ut turpis sit amet leo aliquam placerat maximus eget augue. Vestibulum porta justo vitae arcu tincidunt malesuada. Praesent id purus venenatis mi porta molestie. Nulla vehicula dignissim mauris vehicula aliquam. Integer cursus bibendum lobortis.
+
+                    Quisque id dolor vel odio fringilla maximus sit amet eu felis. Proin malesuada scelerisque eleifend. Sed vel lectus sem. Cras auctor tincidunt eros, id elementum velit condimentum eu. Donec eleifend nec nisi in venenatis. Cras pellentesque ultricies dictum. In ultricies lectus vel enim accumsan, id dignissim tellus suscipit. Etiam venenatis blandit auctor. Donec porttitor lectus in magna pharetra, eu venenatis nisi rutrum. Sed quis metus dui. Praesent eu felis posuere, feugiat est et, sodales nibh. Quisque egestas est eget varius bibendum. Morbi ipsum lacus, commodo at pellentesque eget, tempus eget augue.
+
+                    Quisque sollicitudin condimentum posuere. Sed quam elit, faucibus eu magna sit amet, rutrum cursus sem. Donec sed velit viverra, ultricies urna ac, vestibulum tellus. Ut a eros eget ligula tincidunt dignissim. Maecenas ut laoreet urna. Nunc in urna at odio iaculis lobortis nec ut orci. Quisque non lacus tincidunt, scelerisque magna ut, sodales nibh. Vestibulum ut ipsum sapien.</p>
+            </div>
         </div>
-    </section>
+    </div>
 </main>
-
-
 
 
 <!--###############################Bootstrap & jQuery###############################-->
@@ -78,7 +93,7 @@
 <script src="lib/jquery-3.1.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
         integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 <script src="lib/tether.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
@@ -87,16 +102,23 @@ crossorigin="anonymous"></script>
 <!--Our scripts-->
 <script>
     /* Jumbotron scroll effect */
-    var jumboHeight = $('.jumbotron').outerHeight();
-    function parallax(){
+    /*var jumboHeight = $('.jumbotron').outerHeight();
+    function parallax() {
         var scrolled = $(window).scrollTop();
-        $('.bg').css('height', (jumboHeight-scrolled) + 'px');
+        $('.bg').css('height', (jumboHeight - scrolled) + 'px');
     }
 
-    $(window).scroll(function(e){
+    $(window).scroll(function (e) {
         parallax();
     });
-
+*/
+    /*Smooth anchor scrolling*/
+    $('a').click(function () {
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 500);
+        return false;
+    });
 
 </script>
 </body>

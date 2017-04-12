@@ -2,7 +2,7 @@
     background: url('images/bg.jpg') no-repeat center center;
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: 60%;
     top: 0;
     left: 0;
     z-index: -1;
@@ -11,7 +11,7 @@
 .jumbotron {
     color: #f2f2f2;
     background-color: rgba(0, 0, 0, 0);
-    text-shadow: -2px 1px 2px #000000;
+    text-shadow: -2px 1px 2px #000000, -2px 1px 3px #000000, -2px 1px 4px #000000;
     font-family: 'Lato', sans-serif;
 }
 
@@ -21,4 +21,17 @@
 
 .jumbotron h1 {
     font-size: 88px;
+}
+
+main {
+    padding-top: 30px;
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(to bottom, #fafafa, #eeeeee);
+}
+
+main p{
+ font-size: 24px;
+}
+h2{
+    font-size: 40px;
 }
