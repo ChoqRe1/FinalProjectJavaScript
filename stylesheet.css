@@ -29,9 +29,28 @@ main {
     background: linear-gradient(to bottom, #fafafa, #eeeeee);
 }
 
-main p{
- font-size: 24px;
+main p {
+    font-size: 24px;
 }
-h2{
+
+h2 {
     font-size: 40px;
+}
+
+.blue-horizontal-separator {
+    border-bottom: 1px solid #1D96CF;
+    display: inline-block;
+    width: 160px;
+}
+
+.padding-bottom48 {
+    padding-bottom: 48px;
+}
+
+.padding-top96 {
+    padding-top: 96px;
+}
+
+.margin-top24 {
+    margin-top: 24px;
 }
