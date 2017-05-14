@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RoboMower | Images</title>
+    <title>Robo Mower | Images</title>
 
     <!--###############################Bootstrap###############################-->
     <!--Alpha compiled and minified CSS -->
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="stylesheet.css"/>
 </head>
 <body>
-<nav class="navbar navbar-toggleable-sm navbar-light bg-faded fixed-top">
+<nav class="navbar navbar-toggleable-sm navbar-light bg-faded navbar-static-top">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -68,36 +68,45 @@
 <main>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-				<h2 class="text-center">Images</h2>
-			</div>
-			<div class="col-sm-1">
-				<img src="" width="95px" height="500px" id="arrLeft">
-			</div>
-            <div class="col-sm-10">
-				<img src="" width="950px" height="500px" id="imgSlider">
-            </div>
-			<div class="col-sm-1">
-				<img src="" width="95px" height="500px" id="arrRight">
-			</div>
+            <div class="col-sm-12" id="content"></div>
         </div>
     </div>
 </main>
 
 
 <!--###############################Bootstrap & jQuery###############################-->
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-        crossorigin="anonymous"></script>
 <script src="lib/jquery-3.2.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
 <script src="lib/bootstrap.min.js"></script>
-
+<script src="lib/jquery-3.2.1.js"></script>
+<script>
+	var xhr = new XMLHttpRequest;
+		xhr.open("GET", "ajax/carousel.html", true);
+		xhr.send();
+		xhr.onload = function(){
+			document.getElementById('content').innerHTML = xhr.responseText;
+		}
+</script>
 </body>
-
+<script>
+	$.ajax({
+		type: 'GET',
+		url: 'ajax/images.xml',
+		dataType: 'xml',
+		success: function(data){
+			var i = 0;
+			$(data).find('image').each(function(){
+				var title = $(this).find('title').text();
+				var imageurl = $(this).find('picture').text();
+				
+				$('#'+i).attr('alt', title);
+				$('#'+i).attr('src', imageurl);
+				
+				i++;
+			});
+		}
+	});
+</script>
 </html>
