@@ -91,11 +91,11 @@
 </body>
 <script>
 	var xhr = new XMLHttpRequest;
-	xhr.open("GET", "ajax/carousel.html", true);
-	xhr.send();
-	xhr.onload = function(){
-		document.getElementById('content').innerHTML = xhr.responseText;
-	}
+		xhr.open("GET", "ajax/carousel.html", true);
+		xhr.send();
+		xhr.onload = function(){
+			document.getElementById('content').innerHTML = xhr.responseText;
+		}
 </script>
 <script>
 	$.ajax({
